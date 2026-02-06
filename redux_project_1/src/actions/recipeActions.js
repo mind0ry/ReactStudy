@@ -1,4 +1,4 @@
-import {FETCH_RECIPE_LIST, FETCH_RECIPE_DETAIL} from "./types";
+import {FETCH_RECIPE_LIST, FETCH_RECIPE_DETAIL, FETCH_RECIPE_FIND} from "./types";
 
 // 서버 연동
 import axios from "axios";
@@ -24,4 +24,15 @@ export const fetchRecipeDetail = (no) => async dispatch => {
             }
             dispatch(action);
         })
+}
+
+export const fetchRecipeFind = (page,fd) => dispatch => {
+    axios.get(`http://localhost:3355/recipe/find?page=${page}&fd=${fd}`)
+    .then(response => {
+        const action ={
+            type: FETCH_RECIPE_FIND,
+            payload: response.data
+        }
+        dispatch(action);
+    })
 }

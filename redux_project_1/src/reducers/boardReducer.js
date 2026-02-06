@@ -1,10 +1,74 @@
+import {BOARD_LIST, BOARD_INSERT, BOARD_DETAIL, BOARD_DELETE, BOARD_UPDATE_OK, BOARD_UPDATE, RESET} from "../actions/types"
+
 /*
-    React : 화면 구현 => MVC구조의 view => 화면 UI
-              Redux동작
-              1) 사용자 요청
-                 dispatch(함수호출)
-                       | action에 등록된 함수
-                 => useEffect(()=>{})
-                 => reducer를 호출하기 위해서는 반드시 dispatch()
-                    => vuex : action을 호출 => commit()
+    Java = HavaScript
+    Map => {}
+    List => []
+    VO => {}
+    String => ''
+
+    const {isLoading, isError, data, refetch: 함수} = useQuery({
+        async() => await axios...
+    })
+
+    if(isLoading)
+    if(isError)
+
+    return (
+
+    )
  */
+const boardState = {
+    board_list:{}, // Map
+    board_detail:{}, // BoardEntity
+    board_update:{},
+    result:'' // yes / no
+}
+
+/*
+    let arr=[1,2,3,4,5]
+    lset arr1=[...arr,6,7,8]
+ */
+
+export default function (state = boardState, action) {
+    switch (action.type) {
+        case BOARD_LIST:
+            return {
+                ...state, // state 유지
+                board_list:action.payload
+            }
+        case BOARD_INSERT:
+            return {
+                ...state,
+                result:action.payload
+            }
+        case BOARD_DETAIL:
+            return {
+               ...state,
+               board_detail:action.payload
+            }
+        case BOARD_UPDATE:
+            return {
+                ...state,
+                board_update:action.payload
+            }
+        case BOARD_UPDATE_OK:
+            return {
+                ...state,
+                result:action.payload
+            }
+        case BOARD_DELETE:
+            return {
+                ...state,
+                result:action.payload
+            }
+        case RESET:
+            return {
+                ...state,
+                result:action.payload
+            }
+        default:
+            return state;
+    }
+
+}

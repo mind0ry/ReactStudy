@@ -1,4 +1,4 @@
-import {FETCH_RECIPE_LIST, FETCH_RECIPE_DETAIL} from "../actions/types";
+import {FETCH_RECIPE_LIST, FETCH_RECIPE_DETAIL, FETCH_RECIPE_FIND} from "../actions/types";
 
 const recipeState = {
     recipe_list: [],
@@ -6,7 +6,8 @@ const recipeState = {
         vo:{},
         tList:[],
         iList:[]
-    }
+    },
+    recipe_find:{}
 }
 
 export default function (state = recipeState, action) {
@@ -20,6 +21,11 @@ export default function (state = recipeState, action) {
             return {
                 ...state,
                 recipe_detail: action.payload
+            }
+        case FETCH_RECIPE_FIND:
+            return {
+                ...state,
+                recipe_find: action.payload
             }
         default:
             return state;
