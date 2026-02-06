@@ -1,0 +1,15 @@
+// Food
+export const FETCH_FOOD_LIST="FETCH_FOOD_LIST"
+export const FETCH_FOOD_DETAIL="FETCH_FOOD_DETAIL"
+// Seoul
+// Recipe
+// node => 검색
+export const FETCH_RECIPE_LIST="FETCH_RECIPE_LIST"
+export const FETCH_RECIPE_DETAIL="FETCH_RECIPE_DETAIL"
+// Board
+export const BOARD_LIS="BOARD_LIST"
+export const BOARD_DETAIL="BOARD_DETAIL"
+export const BOARD_UPDATE="BOARD_UPDATE"
+export const BOARD_DELETE="BOARD_DELETE"
+export const BOARD_UPDATE_OK="BOARD_UPDATE_OK"
+export const BOARD_INSERT="BOARD_INSERT"
